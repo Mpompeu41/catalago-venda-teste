@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Detalhes Kimono</title>
+  </head>
+
+  <body>
+    <!-- Área de MENU -->
+    <nav>
+      <article>
+        <img src="/img/jiu jitsu kids.gif" alt="" />
+        <h1><a href="/">Arte Suave</a></h1>
+      </article>
+
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/cadastro">Cadastro</a></li>
+      </ul>
+    </nav>
+    <header>
+      <h1>Detalhes do Produto</h1>
+    </header>
+    <div class="prod-cat-back-link">
+      <button><a class="upcp-catalogue-link" href="/">« Voltar</a></button>
+    </div>
+
+    <section id="detalhes">
+      <div class="card-detalhes">
+        <ul>
+          <li>Nome: <%= kimono.nome %></li>
+          <li>Cor: <%= kimono.cor %></li>
+          <img src="<%= kimono.imagem %>" width="200" />
+          <li>Tamanho: <%= kimono.tamanho %></li>
+          <li>Preco: <%= kimono.preco %></li>
+          <form action="/deletar/<%= kimono.id %>" method="POST">
+            <input type="hidden" name="_method" value="DELETE" />
+            <input type="hidden" name="_token" value="the_token" />
+            <button
+              type="submit"
+              class="btn btn-link"
+              onclick="if (!confirm('Deseja Deletar?')) { return false }"
+            >
+              <span>Delete</span>
+            </button>
+          </form>
+        </ul>
+      </div>
+    </section>
+  </body>
+
+  <script src="/js/script.js"></script>
+</html>
